@@ -1,0 +1,29 @@
+# 改成一个全球唯一的 Fly.io 应用名，或在首次 `fly launch` 时让 flyctl 重写。
+app = "memevault"
+primary_region = "sin"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "3000"
+  HOST = "0.0.0.0"
+  DATA_DIR = "/app/data"
+  TRUST_PROXY = "1"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[mounts]
+  source = "memevault_data"
+  destination = "/app/data"
+
+[[vm]]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1

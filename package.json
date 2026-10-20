@@ -1,0 +1,23 @@
+{
+  "name": "memevault",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "表情包仓库 — 可自托管的响应式表情包网站：上传、导入、导出、评分、评论",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test --test-isolation=none --test-concurrency=1"
+  },
+  "keywords": [
+    "memes",
+    "emoji",
+    "gallery",
+    "self-hosted",
+    "sqlite"
+  ],
+  "license": "MIT"
+}

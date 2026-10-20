@@ -1,0 +1,15 @@
+services:
+  memevault:
+    build: .
+    image: memevault:local
+    ports:
+      - "3000:3000"
+    environment:
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      TRUST_PROXY: "0"
+    volumes:
+      - memevault-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  memevault-data:

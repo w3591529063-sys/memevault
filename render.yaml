@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: memevault
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: DATA_DIR
+        value: /app/data
+      - key: TRUST_PROXY
+        value: "1"
+      - key: ADMIN_TOKEN
+        generateValue: true
+    disk:
+      name: memevault-data
+      mountPath: /app/data
+      sizeGB: 1
